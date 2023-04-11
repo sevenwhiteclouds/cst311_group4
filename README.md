@@ -1,5 +1,12 @@
 # CST311 Assignments
 
+## Note: it is important to ensure that the repository is _private_ so other teams cannot access your code. 
+
+Please see [setting up a private fork](setting_up_a_private_fork.md) for details on how to make a private fork.
+
+
+## Overview
+
 This repository contains programming assignments for CST311.
 
 Please note that assignments may change up until assignment date (and potentially after if there is confusion).
@@ -10,7 +17,6 @@ Therefore, if you start assignments prior to their official submission date plea
 To start working on projects please following the directions in [Setting up a private fork](setting_up_a_private_fork.md) to set up a private repository.
 After you fork, [invite your team members to share](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)
 
-***Note:*** it is important to ensure that the repository is _private_ so other teams cannot access your code. 
 
 ## Updates
 
