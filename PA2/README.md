@@ -29,7 +29,8 @@ Your web server should accept and parse the HTTP request, get the requested file
 If the requested file is not present in the server, the server should send an HTTP “404 Not Found” message back to the client.
 
 #### Code
-In Appendix A, you will find the skeleton code for the Web server. 
+
+You will find the skeleton code for the web server at [src/server.py](src/server.py).
 You are to complete the skeleton code, using the socket library. 
 The places where you need to fill in code are marked with `#Fill in start` and `#Fill in end`. 
 Each place may require one or more lines of code.  
@@ -65,7 +66,7 @@ You can assume that the HTTP request sent is a GET method.
 The client should take command line arguments specifying the server host name, the port at which the server is listening, and the path at which the requested object is stored at the server.  
 The following is an input command format to run the client. 
 ```bash
-python3 webclient.py [server_name] [server_port] [/path/file_name]
+python3 client.py [server_name] [server_port] [/path/file_name]
 ```
 
 Use the socket function `gethostbyname()` in your client script to convert the server name to its IP address.
@@ -86,7 +87,8 @@ The web server will then generate a response message and deliver it to the proxy
 
 
 #### Code 
-In Appendix B, you will find the skeleton code for the client. 
+
+You will find the skeleton code for the proxy at [src/proxy.py](src/proxy.py).
 You are to complete the skeleton code. 
 The places where you need to fill in code are marked with `#Fill in start` and `#Fill in end`. Each place may require one or more lines of code.
 
