@@ -32,7 +32,7 @@ If the requested file is not present in the server, the server should send an HT
 
 You will find the skeleton code for the web server at [src/server.py](src/server.py).
 You are to complete the skeleton code, using the socket library. 
-The places where you need to fill in code are marked with `#Fill in start` and `#Fill in end`. 
+The places where you need to fill in code are marked with `# todo`. 
 Each place may require one or more lines of code.  
 Choose the port number that the web server will be listening on; use a port number >1024, so that the root does not have to start the web server.   
 Use the domain name www.cst311.test for your web server; you will use this domain name in a future lab.
@@ -85,12 +85,14 @@ In other words, the client requests the objects via the proxy server.
 The proxy server will forward the client’s request to the web server. 
 The web server will then generate a response message and deliver it to the proxy server, which in turn sends it to the client. 
 
+![images/web-proxy-overview.png](imgs/web-proxy-overview.png)
+
 
 #### Code 
 
 You will find the skeleton code for the proxy at [src/proxy.py](src/proxy.py).
 You are to complete the skeleton code. 
-The places where you need to fill in code are marked with `#Fill in start` and `#Fill in end`. Each place may require one or more lines of code.
+The places where you need to fill in code are marked with `# todo`. Each place may require one or more lines of code.
 
 #### Running the Proxy Server
 For this part of the lab, you will again use the wget command for the browser. 
