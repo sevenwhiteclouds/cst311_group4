@@ -10,7 +10,7 @@ Use the Teams on the Programming Assignment Teams document (also on Canvas under
 Select your Team leader and divide up work per the Programming Process instructions (also on Canvas under General Information → Team Information.)
 
 Follow the steps below to develop and write the client part of a client server application. 
-The naming convention of the file should be PA2_A_Server_Team<your team #>.py, PA2_A_Client_Team<your team #>py, and PA2_A_Proxy_Team<your team #>py. 
+The naming convention of the file should be `PA2_A_Server_Team<your team #>.py`, `PA2_A_Client_Team<your team #>.py`, and `PA2_A_Proxy_Team<your team #>.py`. 
 Put your names in the program as well. 
 
 Your client program must work with the server program given to you below. 
