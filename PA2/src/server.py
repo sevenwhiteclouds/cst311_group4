@@ -1,35 +1,35 @@
-#!env
-
-import random
+#!env python
+import os.path
 import socket as s
+import sys
 
-import logging
-logging.basicConfig()
-log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+serverSocket = s.socket(s.AF_INET,s.SOCK_STREAM)
+# todo: Prepare a server socket
 
-def main():
-  # Create a UDP socket
-  # Notice the use of SOCK_DGRAM for UDP packets
-  serverSocket = s.socket(s.AF_INET, s.SOCK_DGRAM)
-  # Assign IP address and port number to socket
-  serverSocket.bind(('', 12000))
-  pingnum = 0
-  while True:
-    # Count the pings received
-    pingnum += 1
-    # Generate random number in the range of 0 to 10
-    rand = random.randint(0, 10)
-    # Receive the client packet along with the
-    # address it is coming from
-    message, address = serverSocket.recvfrom(1024)
-    # If rand is less is than 4, and this not the
-    # first "ping" of a group of 10, consider the
-    # packet lost and do not respond
-    if rand < 4 and pingnum % 10 != 1:
-      continue
-    # Otherwise, the server responds
-    serverSocket.sendto(message, address)
+while True:
+  #Establish the connection
+  print('Ready to serve...')
+  connection_socket, addr = None, None # todo: Accept a connection
 
-if __name__ == "__main__":
-  main()
+  message = None # todo: accept message from socket
+  file_name = message.split()[1]
+  if os.path.exists(file_name):
+    # File exists so read it and send it
+    with open(file_name[1:]) as fid:
+      output_data = None # todo: read file to prepare to send over the network
+    
+    # todo: Send HTTP header file
+    
+    #Send the content of the requested file to the client
+    for i in range(0, len(output_data)):
+      connection_socket.send(output_data[i].encode())
+      connection_socket.send("\r\n".encode())
+  else:
+    # File does not exist on server
+    pass
+    # todo: Send appropriate response message for file not found
+  
+  # Close the connection socket
+  connection_socket.close()
+  
+
