@@ -45,7 +45,7 @@ They will be responsible for running meetings as well as the final submission.
 Next, split up your team to have one group do the UDP example together and another group to do the TCP example.
 While these teams can work independently, there is a fair bit of overlap in their roles, and communication between them, so keeping this communication going would be beneficial.
 
-Third, At least once have a meeting where all team members look over all the code together to help understand what it is doind and any changes that were necessary.
+Third, At least once have a meeting where all team members look over all the code together to help understand what it is doing and any changes that were necessary.
 
 #### IDE Configuration
 You are welcome to use whatever IDE the team prefers; for this assignment with about 10 lines of code, you may prefer to simply use an editor but this is up to you.
