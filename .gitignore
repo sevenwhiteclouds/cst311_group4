@@ -1,2 +1,14 @@
 *.DS_Store
 *.pyc
+
+# intellij
+.idea
+out
+build
+*.iml
+.gradle
+local.properties
+*.hprof
+.cxx/
+*.keystore
+!debug.keystore
