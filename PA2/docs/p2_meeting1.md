@@ -5,5 +5,4 @@ Attendees: Keldin M., Stacy K., Steven C., Samuel U
 
 ### Discussion: Sharing Work
 > This is an update by Steven yep
-> THis is an update
 This is also an update -Sam
