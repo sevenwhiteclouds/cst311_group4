@@ -14,9 +14,9 @@ if __name__ == "__main__":
   for i in range(10):
     ping_num += 1
 
-    udp_socket.sendto(("Ping " + str(ping_num)).encode(), (IP, PORT))
-
     try:
+      udp_socket.sendto(("Ping " + str(ping_num)).encode(), (IP, PORT))
+
       echoed_ping = udp_socket.recv(4096)
       print(echoed_ping.decode() + ": Success")
     except:
