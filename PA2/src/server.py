@@ -17,6 +17,7 @@ def main():
   # Assign IP address and port number to socket
   serverSocket.bind(('', SERVER_PORT))
   pingnum = 0
+
   while True:
     # Count the pings received
     pingnum += 1
