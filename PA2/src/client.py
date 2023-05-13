@@ -21,7 +21,7 @@ def main():
     # closes socket after use
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as server_socket:
 
-        # pings x times (reliant on PING variable)
+        # pings x times (reliant on PINGS variable)
         for x in range(PINGS):
             message = "Ping " + str(x + 1) + ": "
             server_socket.sendto(message.encode(), (SERVER_HOST, SERVER_PORT))
