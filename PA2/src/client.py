@@ -42,7 +42,6 @@ if __name__ == "__main__":
                 dev_rtt = (1 - 0) * dev_rtt + 0 * abs(sample_rtt - est_rtt)
             else:
                 dev_rtt = 0.75 * dev_rtt + 0.25 * abs(sample_rtt - est_rtt)
-                asdasdsadsasaads
 
             print("Ping " + str(i + 1)
                   + ": sample_rtt = " + str(round(sample_rtt, PRECISION))
