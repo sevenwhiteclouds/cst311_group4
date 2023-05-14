@@ -10,9 +10,9 @@ this project and identify potential challenges we may encounter while working to
 
 Addtionally, we also worked together to create a strategy that we all could agree on for dividing 
 responsibilities and work among the team. We considered the difficulty of this project and how much 
-work was required to ensure that everyone was assigned tasks equally. We also established a timelin 
-with specific deadlines to keep us on track and make steady progress toward our goal of completing 
-this project, and we also set up our next meeting time and date.
+work was required to ensure that everyone was assigned tasks equally. We also established a 
+timeline with specific deadlines to keep us on track and make steady progress toward our 
+goal of completing this project, and we also set up our next meeting time and date.
 
 To get everyone up to speed, we also assisted each other in setting up our GitHub accounts to work 
 with the shared repository and the basics of using Git. We tested and learned about being able to 
