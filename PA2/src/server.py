@@ -9,16 +9,17 @@ logging.basicConfig()
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
-PORT_NUMBER = 12000
+SERVER_PORT = 12000
 
 
 def main():
     # Create a UDP socket
     # Notice the use of SOCK_DGRAM for UDP packets
-    server_socket = s.socket(s.AF_INET, s.SOCK_DGRAM)
+    serverSocket = s.socket(s.AF_INET, s.SOCK_DGRAM)
     # Assign IP address and port number to socket
-    server_socket.bind(('', PORT_NUMBER))
+    serverSocket.bind(('', SERVER_PORT))
     pingnum = 0
+
     while True:
         # Count the pings received
         pingnum += 1
@@ -26,14 +27,14 @@ def main():
         rand = random.randint(0, 10)
         # Receive the client packet along with the
         # address it is coming from
-        message, address = server_socket.recvfrom(1024)
+        message, address = serverSocket.recvfrom(1024)
         # If rand is less is than 4, and this not the
         # first "ping" of a group of 10, consider the
         # packet lost and do not respond
         if rand < 4 and pingnum % 10 != 1:
             continue
         # Otherwise, the server responds
-        server_socket.sendto(message, address)
+        serverSocket.sendto(message, address)
 
 
 if __name__ == "__main__":
