@@ -33,26 +33,26 @@ if __name__ == "__main__":
       sample_rtt = time.time() - timer_start
 
       if avg_rtt == 0.0:
-        dev_rtt = sample_rtt / 2
-        min_rtt = max_rtt = est_rtt = sample_rtt
+        min_rtt = max_rtt = sample_rtt
       elif sample_rtt > max_rtt:
         max_rtt = sample_rtt
       elif sample_rtt < min_rtt:
         min_rtt = sample_rtt
 
-      est_rtt = (1 - 0.125) * est_rtt + 0.125 * sample_rtt
-
       if i == 0:
-        dev_rtt = (1 - 0) * dev_rtt + 0 * abs(sample_rtt - est_rtt)
+        est_rtt = sample_rtt
+        dev_rtt = sample_rtt / 2
       else:
-        dev_rtt = 0.75 * dev_rtt + 0.25 * abs(sample_rtt - est_rtt)
-
-      print("Ping " + str(i + 1) 
-      + ": sample_rtt = " + str(round(sample_rtt, PRECISION)) 
-      + " ms, estimated_rtt = " + str(round(est_rtt, PRECISION)) 
-      + " ms, dev_rtt = " + str(round(dev_rtt, PRECISION)))
+        est_rtt = (0.875 * est_rtt) + (0.125 * sample_rtt)
+        dev_rtt = (0.75 * dev_rtt) + (0.25 * abs(sample_rtt - est_rtt))
 
       avg_rtt += sample_rtt
+
+      print("Ping " + str(i + 1) + ": sample_rtt = " + str(round(sample_rtt, PRECISION)) +
+      " ms, estimated_rtt = " + str(round(est_rtt, PRECISION)) + " ms, dev_rtt = " + 
+      str(round(dev_rtt, PRECISION)))
+
+  udp_socket.close()
 
   if avg_rtt > 0.0:
     print("Summary values:\nmin_rtt = " + str(round(min_rtt, PRECISION)) 
@@ -61,6 +61,4 @@ if __name__ == "__main__":
     + str(round(100 - (requests_ok / REQUESTS) * 100, PRECISION)) + "%\n" 
     + "Timeout Interval: " + str(round(4 * dev_rtt + est_rtt, PRECISION)) + " ms")
   else:
-    print("The server did not respond at all!")
-
-  udp_socket.close()
+    print("The server did not respond at all!") 
