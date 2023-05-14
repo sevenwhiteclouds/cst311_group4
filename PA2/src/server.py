@@ -8,13 +8,16 @@ logging.basicConfig()
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
+SERVER_PORT = 12000
+
 def main():
   # Create a UDP socket
   # Notice the use of SOCK_DGRAM for UDP packets
   serverSocket = s.socket(s.AF_INET, s.SOCK_DGRAM)
   # Assign IP address and port number to socket
-  serverSocket.bind(('', 12000))
+  serverSocket.bind(('', SERVER_PORT))
   pingnum = 0
+
   while True:
     # Count the pings received
     pingnum += 1
