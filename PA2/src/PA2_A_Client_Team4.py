@@ -1,6 +1,6 @@
 # Server-Client Ping: Project 2
 # Author: Team 4
-# Credtis: Keldin M., Stacy K., Samuel U., Steven C.
+# Credits: Keldin M., Stacy K., Samuel U., Steven C.
 
 import socket
 import time
@@ -14,8 +14,7 @@ PRECISION = 3
 socket.setdefaulttimeout(1)
 
 if __name__ == "__main__":
-  print("Pinging server [" + SERVER + "] on port [" + str(PORT) + "] "
-  + str(REQUESTS) + " times:")
+  print("Pinging server [" + SERVER + "] on port [" + str(PORT) + "] " + str(REQUESTS) + " times:")
 
   udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
   min_rtt = max_rtt = est_rtt = avg_rtt = requests_ok = dev_rtt = 0.0
