@@ -1,5 +1,9 @@
 #!env
 
+# Server-Client Ping: Project 2
+# Author: Team 4
+# Credits: Keldin M., Stacy K., Samuel U., Steven C.
+
 import random
 import socket as s
 
