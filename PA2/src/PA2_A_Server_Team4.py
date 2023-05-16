@@ -26,9 +26,14 @@ def main():
     # If rand is less is than 4, and this not the
     # first "ping" of a group of 10, consider the
     # packet lost and do not respond
+
+    # the message that is being sent from the client is "echo"
+    # printing whether or not the server will return the message
     if rand < 4 and pingnum % 10 != 1:
+      print("Client [" + address[0] + "]: refused!")
       continue
     # Otherwise, the server responds
+    print("Client [" + address[0] + "]: echoed")
     serverSocket.sendto(message, address)
 
 if __name__ == "__main__":
