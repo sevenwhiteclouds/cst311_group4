@@ -108,6 +108,9 @@ You will hand in the complete client and server code to Canvas.
 - [ ] Screenshots of server and client side output in one pdf file.
 - [ ] Fill in columns B and C with RTTs and lost packets as indicated in the file - Output Checker. 
 - Your outputs in your screenshots must match the outputs calculated in the Output Checker.
+- [ ] Source code
+  - [ ] Server
+  - [ ] Client
 
 ### Grading Objectives
 - [ ] (30 points) You must complete this program in the Mininet VM. 
