@@ -24,7 +24,6 @@ Overall, our first meeting was productive and successful. We set up a strong fou
 project
 
 ### Meeting 2: Solution Overview, Math, Bug Fixes, and Next Steps 
-
 During our second team meeting for Project 2, we worked on important tasks that improved 
 our implementation for this project. First, we ensured that the code we wrote met the 
 agreed-upon standards. During this process, we identified areas that needed 
@@ -36,3 +35,16 @@ Additionally, we also fixed a couple bugs that came up after modifying our mathe
 calculations. We thoroughly double-checked the results to ensure they matched our 
 expectations after the bug fixes. Lastly, we scheduled a date and time for our next 
 meeting to maintain the consistent progress and stay on track for the project's due date.
+
+### Meeting 3: Code Review, Output Validation, and Wrap-Up
+During our third and final meeting for Project 2, we successfully concluded the remaining tasks. 
+Firstly, we conducted a thorough review of the final code, ensuring its accuracy and efficiency. 
+We paid special attention to any potential bugs or optimizations needed. Secondly, we took the 
+time to double-check the output on each team member's mininet instance to guarantee consistency 
+across all environments. We examined the results, confirming that they aligned with 
+the project requirements. We also made an effort to enhance the program's documentation. 
+We added comprehensive comments that explained some of the intricacies of the code, 
+facilitating better understanding for whoever reads it. Finally, an update and finalization of 
+the meeting notes, capturing all essential discussions, decisions, and action items 
+for future reference was performed. The final meeting was productive and marked the 
+successful completion of Project 2.
