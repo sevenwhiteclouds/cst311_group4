@@ -4,9 +4,10 @@ Attendees: Keldin M., Stacy K., Steven C., Samuel U.
 ---
 
 ### Meeting 1: Requirements and Strategy
-For our initial meeting for Project 2, as a team, we reviewed the project requirements and discusse 
-any questions or concerns that came up. This helped the entire team gain a better understanding of 
-this project and identify potential challenges we may encounter while working towards completing it.
+For our initial meeting for Project 2, as a team, we reviewed the project requirements 
+and discussed any questions or concerns that came up. This helped the entire team gain 
+a better understanding of this project and identify potential challenges we may encounter 
+while working towards completing it.
 
 Addtionally, we also worked together to create a strategy that we all could agree on for dividing 
 responsibilities and work among the team. We considered the difficulty of this project and how much 
@@ -21,7 +22,7 @@ individual work. Doing all these things allowed us to collaborate more effective
 efficiently on this project.
 
 Overall, our first meeting was productive and successful. We set up a strong foundation for the 
-project
+project.
 
 ### Meeting 2: Solution Overview, Math, Bug Fixes, and Next Steps 
 During our second team meeting for Project 2, we worked on important tasks that improved 
