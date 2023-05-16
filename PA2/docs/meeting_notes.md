@@ -22,3 +22,17 @@ efficiently on this project.
 
 Overall, our first meeting was productive and successful. We set up a strong foundation for the 
 project
+
+### Meeting 2: Solution Overview, Math, Bug Fixes, and Next Steps 
+
+During our second team meeting for Project 2, we worked on important tasks that improved 
+our implementation for this project. First, we ensured that the code we wrote met the 
+agreed-upon standards. During this process, we identified areas that needed 
+improvement, particularly in the mathematical aspects of our solution. Once we addressed 
+this issue, we brought everyone up to speed with our solution, 
+ensuring clarity and resolving any confusion.
+
+Additionally, we also fixed a couple bugs that came up after modifying our mathematical 
+calculations. We thoroughly double-checked the results to ensure they matched our 
+expectations after the bug fixes. Lastly, we scheduled a date and time for our next 
+meeting to maintain the consistent progress and stay on track for the project's due date.
