@@ -56,9 +56,9 @@ if __name__ == "__main__":
       avg_rtt += sample_rtt
 
       print("Ping " + str(i + 1)
-      + ": sample_rtt = " + str(round(sample_rtt, PRECISION))
-      + " ms, estimated_rtt = " + str(round(est_rtt, PRECISION))
-      + " ms, dev_rtt = " + str(round(dev_rtt, PRECISION)))
+            + ": sample_rtt = " + str(round(sample_rtt, PRECISION))
+            + " ms, estimated_rtt = " + str(round(est_rtt, PRECISION))
+            + " ms, dev_rtt = " + str(round(dev_rtt, PRECISION)))
 
   # Closes socket
   udp_socket.close()
@@ -66,9 +66,9 @@ if __name__ == "__main__":
   if avg_rtt > 0.0:
     print("Summary values:\n"
           "min_rtt = " + str(round(min_rtt, PRECISION))
-    + " ms\nmax_rtt = " + str(round(max_rtt, PRECISION))
-    + " ms\navg_rtt = " + str(round(avg_rtt / requests_ok, PRECISION))
-    + " ms\nPacket loss: " + str(round(100 - (requests_ok / REQUESTS) * 100, PRECISION)) + "%\n"
-    + "Timeout Interval: " + str(round(4 * dev_rtt + est_rtt, PRECISION)) + " ms")
+          + " ms\nmax_rtt = " + str(round(max_rtt, PRECISION))
+          + " ms\navg_rtt = " + str(round(avg_rtt / requests_ok, PRECISION))
+          + " ms\nPacket loss: " + str(round(100 - (requests_ok / REQUESTS) * 100, PRECISION)) + "%\n"
+          + "Timeout Interval: " + str(round(4 * dev_rtt + est_rtt, PRECISION)) + " ms")
   else:
     print("The server did not respond at all!") 
