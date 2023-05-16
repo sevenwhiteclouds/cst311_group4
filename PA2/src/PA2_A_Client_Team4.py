@@ -14,7 +14,7 @@ PRECISION = 3
 socket.setdefaulttimeout(1)
 
 if __name__ == "__main__":
-  print("Pinging server [" + SERVER + "] on port [" + str(PORT) + "] " 
+  print("Pinging server [" + SERVER + "] on port [" + str(PORT) + "] "
   + str(REQUESTS) + " times:")
 
   udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -48,17 +48,19 @@ if __name__ == "__main__":
 
       avg_rtt += sample_rtt
 
-      print("Ping " + str(i + 1) + ": sample_rtt = " + str(round(sample_rtt, PRECISION)) +
-      " ms, estimated_rtt = " + str(round(est_rtt, PRECISION)) + " ms, dev_rtt = " + 
-      str(round(dev_rtt, PRECISION)))
+      print("Ping " + str(i + 1)
+      + ": sample_rtt = " + str(round(sample_rtt, PRECISION))
+      + " ms, estimated_rtt = " + str(round(est_rtt, PRECISION))
+      + " ms, dev_rtt = " + str(round(dev_rtt, PRECISION)))
 
   udp_socket.close()
 
   if avg_rtt > 0.0:
-    print("Summary values:\nmin_rtt = " + str(round(min_rtt, PRECISION)) 
-    + " ms\nmax_rtt = " + str(round(max_rtt, PRECISION)) + " ms\navg_rtt = " 
-    + str(round(avg_rtt / requests_ok, PRECISION)) + " ms\nPacket loss: " 
-    + str(round(100 - (requests_ok / REQUESTS) * 100, PRECISION)) + "%\n" 
+    print("Summary values:\n"
+          "min_rtt = " + str(round(min_rtt, PRECISION))
+    + " ms\nmax_rtt = " + str(round(max_rtt, PRECISION))
+    + " ms\navg_rtt = " + str(round(avg_rtt / requests_ok, PRECISION))
+    + " ms\nPacket loss: " + str(round(100 - (requests_ok / REQUESTS) * 100, PRECISION)) + "%\n"
     + "Timeout Interval: " + str(round(4 * dev_rtt + est_rtt, PRECISION)) + " ms")
   else:
     print("The server did not respond at all!") 
