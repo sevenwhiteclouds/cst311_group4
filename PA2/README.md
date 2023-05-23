@@ -108,7 +108,7 @@ You will hand in the complete client and server code to Canvas.
 - [ ] Screenshots of server and client side output in one pdf file.
 - [ ] Copy of [output checker](https://docs.google.com/spreadsheets/d/1WxK9ww-oc5uNbU_b-58MholQ6KzyLp-6HvXW-z9mbIo/edit?usp=sharing)
   - [ ] Fill in columns B and C with RTTs and lost packets as indicated in the file - Output Checker. 
-- Your outputs in your screenshots must match the outputs calculated in the Output Checker.
+    - Your outputs in your screenshots must match the outputs calculated in the Output Checker.
 - [ ] Source code
   - [ ] Server
   - [ ] Client
