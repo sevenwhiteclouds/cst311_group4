@@ -10,6 +10,7 @@ __credits__ = [
 
 
 import socket as s
+import time
 
 # Configure logging
 import logging
@@ -31,6 +32,7 @@ def connection_handler(connection_socket, address):
   log.info("Recieved query test \"" + str(query_decoded) + "\"")
   
   # Perform some server operations on data to generate response
+  time.sleep(10)
   response = query_decoded.upper()
   
   # Sent response over the network, encoding to UTF-8
