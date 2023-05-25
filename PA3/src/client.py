@@ -40,7 +40,7 @@ def main():
     exit(8)
     
   # Get input from user
-  user_input = input('Input lowercase sentence:')
+  user_input = input('Input lowercase sentence: ')
   
   # Wrap in a try-finally to ensure the socket is properly closed regardless of errors
   try:
