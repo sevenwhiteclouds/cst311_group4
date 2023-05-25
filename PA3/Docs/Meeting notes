@@ -1,0 +1,13 @@
+Project 3: Meeting Notes
+Attendees: Keldin M., Stacy K., Steven C., Samuel U.
+
+Meeting 1: Overview and discussion of requirements
+
+For the first meeting, we looked at the requirements of Project 3, which helped the group understand the expectations
+fot this projects. We also looked at the extra credit options and decided we would probably work on those once the
+main requirements are done. As a group, we discussed how multithreading will be important for this project. We also
+discussed how there are different ways to dictate which client sends the first message. After some strategizing and
+planning on how this assignment can be done, we decided that we can each individually begin working on the project and
+will discuss each others code at the next meeting. Everyone's code should be able to have 2 clients establish a TCP
+connection and at least an attempt to get the server to have a message with the respective client's message in the order
+they were received.
