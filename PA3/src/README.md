@@ -23,7 +23,7 @@ Input lowercase sentence:
 $ python server.py
 INFO:__main__:The server is ready to receive on port 12000
 INFO:__main__:Connected to client at ('127.0.0.1', 52569)
-INFO:__main__:Recieved query test "Hello"
+INFO:__main__:Recieved query test.txt "Hello"
 ```
 
 ```shell
