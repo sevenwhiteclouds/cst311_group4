@@ -1,15 +1,17 @@
 #!env python
 
 """Chat server for CST311 Programming Assignment 3"""
-__author__ = "[team name here]"
+__author__ = "Team 4 - Byte Builders"
 __credits__ = [
-    "Your",
-    "Names",
-    "Here"
+    "Steven C.",
+    "Keldin M.",
+    "Stacy K.",
+    "Sam O."
 ]
 
 import socket as s
 from threading import Thread
+import time
 
 # Configure logging
 import logging
@@ -19,24 +21,38 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 server_port = 12000
+message_list = []
+response = False
 
 
-def connection_handler(connection_socket, address):
+def connection_handler(connection_socket):
     # Read data from the new connectio socket
-    #  Note: if no data has been sent this blocks until there is data
-    query = connection_socket.recv(1024)
+    # Note: if no data has been sent this blocks until there is data
+    global response
+    message = connection_socket.recv(1024)
+    lt = time.localtime()
+
+    msg_timestamp = str(lt.tm_mon) + "/" \
+                    + str(lt.tm_mday) + "/" \
+                    + str(lt.tm_year) + " " \
+                    + str(lt.tm_hour) + ":" \
+                    + str(lt.tm_min) + ":" \
+                    + str(lt.tm_sec)
 
     # Decode data from UTF-8 bytestream
-    query_decoded = query.decode()
-
+    message_decoded = message.decode()
+    message_list.append(message_decoded)
     # Log query information
-    log.info("Recieved query test \"" + str(query_decoded) + "\"")
+    log.info("Received Message: \"" + str(message_decoded) + "\"" + " at " + msg_timestamp)
 
-    # Perform some server operations on data to generate response
-    response = query_decoded.upper()
+    while not response:
+        if len(message_list) == 2:
+            # Perform some server operations on data to generate response
+            response = "X:" + "\'" + message_list[0] + "\'," \
+                       + " Y:" + "\'" + message_list[1] + "\'"
 
-    # Sent response over the network, encoding to UTF-8
-    connection_socket.send(response.encode())
+            # Sent response over the network, encoding to UTF-8
+            connection_socket.send(response.encode())
 
     # Close client socket
     connection_socket.close()
@@ -65,7 +81,8 @@ def main():
 def thread_process(connection_socket, address):
 
     log.info("Connected to client at " + str(address))
-    connection_handler(connection_socket, address)
+
+    connection_handler(connection_socket)
 
 
 if __name__ == "__main__":

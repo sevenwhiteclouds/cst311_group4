@@ -1,11 +1,12 @@
 #!env python
 
 """Chat client for CST311 Programming Assignment 3"""
-__author__ = "[team name here]"
+__author__ = "Team 4 - Byte Builders"
 __credits__ = [
-    "Your",
-    "Names",
-    "Here"
+    "Steven C.",
+    "Keldin M.",
+    "Stacy K.",
+    "Sam O."
 ]
 
 # Import statements
