@@ -6,7 +6,7 @@ __credits__ = [
     "Steven C.",
     "Keldin M.",
     "Stacy K.",
-    "Sam O."
+    "Sam U."
 ]
 
 # Import statements
