@@ -22,7 +22,6 @@ log.setLevel(logging.DEBUG)
 
 server_port = 12000
 message_list = []
-response = False
 
 
 def main():
@@ -50,7 +49,6 @@ def thread_process(connection_socket, address):
 
     log.info("Connected to client at " + str(address))
 
-    global response
     message = connection_socket.recv(1024)
 
     # Gets localtime of the delivered message. msg_timestamp places it into readable format
@@ -71,7 +69,7 @@ def thread_process(connection_socket, address):
     log.info("Received Message: \"" + str(message_decoded) + "\"" + " at " + msg_timestamp)
 
     # Waits for both responses before creating response
-    while not response:
+    while True:
         if len(message_list) == 2:
             # Perform some server operations on data to generate response
             response = "X:" + "\'" + message_list[0] + "\'," \
@@ -79,6 +77,7 @@ def thread_process(connection_socket, address):
 
             # Sent response over the network, encoding to UTF-8
             connection_socket.send(response.encode())
+            break
 
     # Close client socket after response has been sent
     connection_socket.close()
