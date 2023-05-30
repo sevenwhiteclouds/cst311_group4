@@ -65,27 +65,3 @@ if __name__ == "__main__":
         client_num += 1
 
     server_socket.close()
-
-
-    """
-    for i < 4
-    i = 0
-    i = 1
-    i = 2
-    i = 3
-    """
-    """
-    for i < 4
-    i = 0
-    i = 1 - pop
-    i = 1
-    i = 2
-    i = 3
-    """
-    """
-    for i < 4
-    i = 0
-    i = 1 - pop
-    i = 3
-    """
-
