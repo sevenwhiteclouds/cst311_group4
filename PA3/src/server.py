@@ -21,7 +21,6 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 server_port = 12000
-message_list = []
 
 
 def main():
@@ -38,15 +37,16 @@ def main():
     # Alert user we are now online
     log.info("The server is ready to receive on port " + str(server_port))
 
+    message_list = []
+
     # Creates threads for connection. Currently set to 2 connections. While True loop makes this infinite.
     for i in range(2):
         connection_socket, address = server_socket.accept()
-        t = Thread(target=thread_process, args=(connection_socket, address))
+        t = Thread(target=thread_process, args=(connection_socket, address, message_list))
         t.start()
 
 
-def thread_process(connection_socket, address):
-
+def thread_process(connection_socket, address, message_list):
     log.info("Connected to client at " + str(address))
 
     message = connection_socket.recv(1024)
