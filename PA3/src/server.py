@@ -28,19 +28,18 @@ def msg_send(queue, connections):
             time.sleep(.5)
 
 
-        #num = 0
+        num = 0
 
         for i in range(len(connections)):
           try:
-            connections[i].send(queue[0].encode())
+            connections[num].send(queue[0].encode())
+            num += 1
           except:
-            connections.pop(i)
+            connections.pop(num)
+            num -= 1
             print("it popped")
 
-            i -= 1
-
-            if len(connections) == 0:
-              break
+            i += 1
 
             continue
 
@@ -66,3 +65,27 @@ if __name__ == "__main__":
         client_num += 1
 
     server_socket.close()
+
+
+    """
+    for i < 4
+    i = 0
+    i = 1
+    i = 2
+    i = 3
+    """
+    """
+    for i < 4
+    i = 0
+    i = 1 - pop
+    i = 1
+    i = 2
+    i = 3
+    """
+    """
+    for i < 4
+    i = 0
+    i = 1 - pop
+    i = 3
+    """
+
