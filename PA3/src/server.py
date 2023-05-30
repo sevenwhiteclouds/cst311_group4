@@ -10,12 +10,12 @@ log.setLevel(logging.DEBUG)
 PORT = 12000
 
 
-def spawn_thread(client, address, queue):
+def spawn_thread(client, address, queue, client_num):
     log.info("Connected to client at " + str(address))
 
     while True:
         mssg = client.recv(1024).decode()
-        queue.append(mssg)
+        queue.append(f"Client{client_num}: {mssg}")
         time.sleep(.5)
 
 
@@ -39,12 +39,14 @@ if __name__ == "__main__":
     log.info("The server is ready to receive on port " + str(PORT))
 
     queue, connections = [], []
+    client_num = 1
 
     threading.Thread(target=msg_send, args=(queue, connections)).start()
 
     while True:
         client, address = server_socket.accept()
         connections.append(client)
-        threading.Thread(target=spawn_thread, args=(client, address, queue)).start()
+        threading.Thread(target=spawn_thread, args=(client, address, queue, client_num)).start()
+        client_num += 1
 
     server_socket.close()
