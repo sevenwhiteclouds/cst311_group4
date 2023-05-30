@@ -97,7 +97,7 @@ The messages from the server to the client must look like (depending on the orde
 - [ ] ***Common Requirements***
   - [ ] (5 points) Clients and servers much use TCP sockets; you will need to establish a connection first since it is a connection-oriented protocol.
   - [ ] (10 points) Execution should be run on mininet virtual machine (but not necessarily within the mininet simulation).
-  - [ ] (10 points) Program must be well documented.
+  - [ ] (5 points) Program must be well documented.
   - [ ] (20 points) Explain **why** and **how** you need multithreading to solve this problem. Put this in a comment at the top of your server code.
 
 - [ ] ***Client-oriented Requirements***
