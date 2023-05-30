@@ -39,11 +39,12 @@ def main():
       log.error("\tNo specific advice, please contact teaching staff and include text of error and code.")
     exit(8)
     
-  # Get input from user
-  user_input = input('Input lowercase sentence: ')
   
   # Wrap in a try-finally to ensure the socket is properly closed regardless of errors
-  try:
+  while True:
+    # Get input from user
+    user_input = input('Input lowercase sentence: ')
+
     # Set data across socket to server
     #  Note: encode() converts the string to UTF-8 for transmission
     client_socket.send(user_input.encode())
@@ -57,9 +58,9 @@ def main():
     print('From Server:')
     print(server_response_decoded)
     
-  finally:
+  #finally:
     # Close socket prior to exit
-    client_socket.close()
+  #  client_socket.close()
 
 # This helps shield code from running when we import the module
 if __name__ == "__main__":
