@@ -24,26 +24,7 @@ server_port = 12000
 
 
 def main():
-    # Create a TCP socket
-    # Notice the use of SOCK_STREAM for TCP packets
-    server_socket = s.socket(s.AF_INET, s.SOCK_STREAM)
-
-    # Assign IP address and port number to socket, and bind to chosen port
-    server_socket.bind(('', server_port))
-
-    # Configure how many requests can be queued on the server at once
-    server_socket.listen(1)
-
-    # Alert user we are now online
-    log.info("The server is ready to receive on port " + str(server_port))
-
-    message_list = []
-
-    # Creates threads for connection. Currently set to 2 connections. While True loop makes this infinite.
-    for i in range(2):
-        connection_socket, address = server_socket.accept()
-        t = Thread(target=thread_process, args=(connection_socket, address, message_list))
-        t.start()
+    connection_start()
 
 
 def thread_process(connection_socket, address, message_list):
@@ -81,6 +62,29 @@ def thread_process(connection_socket, address, message_list):
 
     # Close client socket after response has been sent
     connection_socket.close()
+
+
+def connection_start():
+    # Create a TCP socket
+    # Notice the use of SOCK_STREAM for TCP packets
+    server_socket = s.socket(s.AF_INET, s.SOCK_STREAM)
+
+    # Assign IP address and port number to socket, and bind to chosen port
+    server_socket.bind(('', server_port))
+
+    # Configure how many requests can be queued on the server at once
+    server_socket.listen(1)
+
+    # Alert user we are now online
+    log.info("The server is ready to receive on port " + str(server_port))
+
+    message_list = []
+
+    # Creates threads for connection. Currently set to 2 connections. While True loop makes this infinite.
+    for i in range(2):
+        connection_socket, address = server_socket.accept()
+        t = Thread(target=thread_process, args=(connection_socket, address, message_list))
+        t.start()
 
 
 if __name__ == "__main__":
