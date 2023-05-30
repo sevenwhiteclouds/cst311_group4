@@ -19,12 +19,12 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 # Set global variables
-server_name = "localhost"
+server_name = "keldin.me"
 server_port = 12000
 
 def get_mssgs(client_socket):
   while True:
-    print(f"{client_socket.recv(1024).decode()}\n")
+    print(f"{client_socket.recv(1024).decode()}")
 
 def main():
   # Create socket
@@ -49,9 +49,8 @@ def main():
   # Wrap in a try-finally to ensure the socket is properly closed regardless of errors
   while True:
     # Get input from user
-    user_input = input("Input lowercase sentence: ")
-
-    print(f"Me: {user_input}\n")
+    user_input = input()
+    print("\033[A\033[A")
 
     # Set data across socket to server
     #  Note: encode() converts the string to UTF-8 for transmission

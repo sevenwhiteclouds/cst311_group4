@@ -9,39 +9,42 @@ log.setLevel(logging.DEBUG)
 
 PORT = 12000
 
-def spawn_thread(i, client, address, queue1, queue2):
-  log.info("Connected to client at " + str(address))
 
-  while True:
-    mssg = client.recv(1024).decode()
-    log.info("Recieved query test \"" + mssg + "\"")
+def spawn_thread(client, address, queue):
+    log.info("Connected to client at " + str(address))
 
-    if i == 0:
-      queue1.append(mssg)
+    while True:
+        mssg = client.recv(1024).decode()
+        queue.append(mssg)
+        time.sleep(.5)
 
-      while len(queue2) == 0:
-        time.sleep(1)
 
-      client.send(queue2.pop(0).encode())
-    else:
-      queue2.append(mssg)
+def msg_send(queue, connections):
+    while True:
+        while len(queue) < 1:
+            time.sleep(.5)
 
-      while len(queue1) == 0:
-        time.sleep(1)
+        for i in connections:
+          i.send(queue[0].encode())
 
-      client.send(queue1.pop(0).encode())
+        log.info("Received Query Test \"" + queue[0] + "\"")
+        queue.pop(0)
+
 
 if __name__ == "__main__":
-  server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-  server_socket.bind(('', PORT))
-  server_socket.listen(1)
-  
-  log.info("The server is ready to receive on port " + str(PORT))
-  
-  queue1, queue2 = [], []
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind(('', PORT))
+    server_socket.listen(1)
 
-  for i in range(2):
-    client, address = server_socket.accept()
-    threading.Thread(target = spawn_thread, args = (i, client, address, queue1, queue2)).start()
+    log.info("The server is ready to receive on port " + str(PORT))
 
-  server_socket.close()
+    queue, connections = [], []
+
+    threading.Thread(target=msg_send, args=(queue, connections)).start()
+
+    while True:
+        client, address = server_socket.accept()
+        connections.append(client)
+        threading.Thread(target=spawn_thread, args=(client, address, queue)).start()
+
+    server_socket.close()
