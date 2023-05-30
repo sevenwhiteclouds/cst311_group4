@@ -14,17 +14,14 @@ def spawn_thread(connections, client, address, queue, client_num):
 
     while True:
         num = connections.index(client)
-        try:
-          mssg = client.recv(1024).decode()
-          if not mssg:
-              queue.append(f"Client{client_num} has left")
-              connections.pop(num)
-              break
-          else:
-            queue.append(f"Client{client_num}: {mssg}")
+        mssg = client.recv(1024).decode()
 
-        except:
-          client.close()
+        if not mssg:
+          queue.append(f"Client{client_num} has left")
+          connections.pop(num)
+          break
+        else:
+          queue.append(f"Client{client_num}: {mssg}")
 
         time.sleep(.5)
 
