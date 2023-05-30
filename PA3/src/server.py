@@ -27,11 +27,21 @@ def msg_send(queue, connections):
         while len(queue) < 1:
             time.sleep(.5)
 
-        for i in connections:
+
+        #num = 0
+
+        for i in range(len(connections)):
           try:
-            i.send(queue[0].encode())
+            connections[i].send(queue[0].encode())
           except:
             connections.pop(i)
+            print("it popped")
+
+            i -= 1
+
+            if len(connections) == 0:
+              break
+
             continue
 
         log.info("Received Query Test \"" + queue[0] + "\"")
