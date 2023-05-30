@@ -9,15 +9,18 @@ log.setLevel(logging.DEBUG)
 
 PORT = 12000
 
-
 def spawn_thread(client, address, queue, client_num):
     log.info("Connected to client at " + str(address))
 
     while True:
-        mssg = client.recv(1024).decode()
-        queue.append(f"Client{client_num}: {mssg}")
-        time.sleep(.5)
+        try:
+          mssg = client.recv(1024).decode()
+          queue.append(f"Client{client_num}: {mssg}")
+        except:
+          client.close()
+          break
 
+        time.sleep(.5)
 
 def msg_send(queue, connections):
     while True:
@@ -25,11 +28,14 @@ def msg_send(queue, connections):
             time.sleep(.5)
 
         for i in connections:
-          i.send(queue[0].encode())
+          try:
+            i.send(queue[0].encode())
+          except:
+            connections.pop(i)
+            continue
 
         log.info("Received Query Test \"" + queue[0] + "\"")
         queue.pop(0)
-
 
 if __name__ == "__main__":
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

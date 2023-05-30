@@ -24,7 +24,10 @@ server_port = 12000
 
 def get_mssgs(client_socket):
   while True:
-    print(f"{client_socket.recv(1024).decode()}")
+    try:
+      print(f"{client_socket.recv(1024).decode()}")
+    except:
+      break
 
 def main():
   # Create socket
@@ -53,12 +56,12 @@ def main():
     print("\033[A\033[A")
 
     if user_input == "bye":
+      client_socket.close()
       break
     # Set data across socket to server
     #  Note: encode() converts the string to UTF-8 for transmission
     client_socket.send(user_input.encode())
     
-  client_socket.close()
 
 # This helps shield code from running when we import the module
 if __name__ == "__main__":
