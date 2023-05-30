@@ -8,16 +8,22 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 PORT = 12000
+lock = threading.Lock()
 
-def spawn_thread(client, address, queue, client_num):
+def spawn_thread(connections, client, address, queue, client_num):
     log.info("Connected to client at " + str(address))
 
+    num = 0
     while True:
+        num = connections.index(client)
         try:
           mssg = client.recv(1024).decode()
           queue.append(f"Client{client_num}: {mssg}")
         except:
+          lock.acquire()
           client.close()
+          connections.pop(num)
+          lock.release()
           break
 
         time.sleep(.5)
@@ -27,24 +33,13 @@ def msg_send(queue, connections):
         while len(queue) < 1:
             time.sleep(.5)
 
-
-        num = 0
-
-        for i in range(len(connections)):
-          try:
-            connections[num].send(queue[0].encode())
-            num += 1
-          except:
-            connections.pop(num)
-            num -= 1
-            print("it popped")
-
-            i += 1
-
-            continue
+        lock.acquire()
+        for i in connections:
+          i.send(queue[0].encode())
 
         log.info("Received Query Test \"" + queue[0] + "\"")
         queue.pop(0)
+        lock.release()
 
 if __name__ == "__main__":
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -61,7 +56,7 @@ if __name__ == "__main__":
     while True:
         client, address = server_socket.accept()
         connections.append(client)
-        threading.Thread(target=spawn_thread, args=(client, address, queue, client_num)).start()
+        threading.Thread(target=spawn_thread, args=(connections, client, address, queue, client_num)).start()
         client_num += 1
 
     server_socket.close()

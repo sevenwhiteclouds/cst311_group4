@@ -11,6 +11,7 @@ __credits__ = [
 # Import statements
 import socket as s
 import threading
+import time
 
 # Configure logging
 import logging
@@ -19,8 +20,8 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 # Set global variables
-server_name = "keldin.me"
-#server_name = "localhost"
+#server_name = "keldin.me"
+server_name = "localhost"
 server_port = 12000
 
 def get_mssgs(client_socket):
@@ -58,6 +59,7 @@ def main():
 
     if user_input == "bye":
       client_socket.close()
+      #time.sleep(1)
       break
     # Set data across socket to server
     #  Note: encode() converts the string to UTF-8 for transmission
