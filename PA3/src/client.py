@@ -52,13 +52,13 @@ def main():
     user_input = input()
     print("\033[A\033[A")
 
+    if user_input == "bye":
+      break
     # Set data across socket to server
     #  Note: encode() converts the string to UTF-8 for transmission
     client_socket.send(user_input.encode())
     
-  #finally:
-    # Close socket prior to exit
-  #  client_socket.close()
+  client_socket.close()
 
 # This helps shield code from running when we import the module
 if __name__ == "__main__":
