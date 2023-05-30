@@ -18,15 +18,15 @@ def spawn_thread(connections, client, address, queue, client_num):
         num = connections.index(client)
         try:
           mssg = client.recv(1024).decode()
-          queue.append(f"Client{client_num}: {mssg}")
         except:
           lock.acquire()
           client.close()
           connections.pop(num)
           lock.release()
-          break
+          return
 
-        time.sleep(.5)
+        queue.append(f"Client{client_num}: {mssg}")
+        time.sleep(1)
 
 def msg_send(queue, connections):
     while True:
