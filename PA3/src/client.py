@@ -24,7 +24,7 @@ server_port = 12000
 
 def get_mssgs(client_socket):
   while True:
-    print(f"From Server: {client_socket.recv(1024).decode()}\n")
+    print(f"{client_socket.recv(1024).decode()}\n")
 
 def main():
   # Create socket
