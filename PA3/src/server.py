@@ -8,38 +8,36 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 PORT = 12000
-lock = threading.Lock()
 
 def spawn_thread(connections, client, address, queue, client_num):
     log.info("Connected to client at " + str(address))
 
-    num = 0
     while True:
         num = connections.index(client)
         try:
           mssg = client.recv(1024).decode()
-        except:
-          lock.acquire()
-          client.close()
-          connections.pop(num)
-          lock.release()
-          return
+          if not mssg:
+              queue.append(f"Client{client_num} has left")
+              connections.pop(num)
+              break
+          else:
+            queue.append(f"Client{client_num}: {mssg}")
 
-        queue.append(f"Client{client_num}: {mssg}")
-        time.sleep(1)
+        except:
+          client.close()
+
+        time.sleep(.5)
 
 def msg_send(queue, connections):
     while True:
         while len(queue) < 1:
             time.sleep(.5)
 
-        lock.acquire()
         for i in connections:
-          i.send(queue[0].encode())
+            i.send(queue[0].encode())
 
         log.info("Received Query Test \"" + queue[0] + "\"")
         queue.pop(0)
-        lock.release()
 
 if __name__ == "__main__":
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

@@ -15,6 +15,9 @@ import time
 
 # Configure logging
 import logging
+
+from _socket import SHUT_RDWR
+
 logging.basicConfig()
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
@@ -55,16 +58,14 @@ def main():
   while True:
     # Get input from user
     user_input = input()
-    #print("\033[A\033[A")
+    print("\033[A\033[A")
 
     if user_input == "bye":
       client_socket.close()
-      #time.sleep(1)
       break
+
     else: 
       client_socket.send(user_input.encode())
-    # Set data across socket to server
-    #  Note: encode() converts the string to UTF-8 for transmission
     
 
 # This helps shield code from running when we import the module
