@@ -9,21 +9,22 @@ log.setLevel(logging.DEBUG)
 
 PORT = 12000
 
-def spawn_thread(client, address, lock, data):
+def spawn_thread(thread_num, client, address, data):
   log.info("Connected to client at " + str(address))
 
   mssg = client.recv(1024).decode()
 
-  lock.acquire()
-  data.append(mssg)
-  lock.release()
-
+  if thread_num == 0:
+    data.append(f"X : \"{mssg}\"")
+  else:
+    data.append(f"Y : \"{mssg}\"")
+    
   log.info("Recieved query test \"" + mssg + "\"")
 
   while len(data) < 2:
     time.sleep(1)
   
-  response = "X : \"" + data[0] + "\", Y : \"" + data[1] + "\""
+  response = f"{data[0]}, {data[1]}"
 
   client.send(response.encode())
   client.close()
@@ -35,10 +36,10 @@ if __name__ == "__main__":
   
   log.info("The server is ready to receive on port " + str(PORT))
   
-  lock, data = threading.Lock(), []
+  data = []
 
   for i in range(2):
     client, address = server_socket.accept()
-    threading.Thread(target = spawn_thread, args = (client, address, lock, data)).start()
+    threading.Thread(target = spawn_thread, args = (i, client, address, data)).start()
 
   server_socket.close()
