@@ -2,7 +2,7 @@
 
 """Chat server for CST311 Programming Assignment 3"""
 __author__ = "Team 4"
-__credits__ = ["Keldin M.", "Stacy K.", "Steven C", "Samuel U."]
+__credits__ = "Keldin M.", "Stacy K.", "Steven C", "Samuel U."
 # Multithreading is needed for this program because each client that connects to the server is a thread. Since there
 # are multiple clients, there needs to be multiple threads. Multithreading allows these threads to be run concurrently,
 # This helps improves the efficiency since  both clients can communicate with the server without waiting for the
