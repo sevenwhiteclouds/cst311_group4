@@ -2,7 +2,7 @@
 
 """Chat client for CST311 Programming Assignment 3"""
 __author__ = "Team 4"
-__credits__ = "Keldin M.", "Stacy K.", "Steven C", "Samuel U."
+__credits__ = ["Keldin M.", "Stacy K.", "Steven C", "Samuel U."]
 
 # Import statements
 import socket as s
