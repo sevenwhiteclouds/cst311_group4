@@ -98,7 +98,7 @@ I suggest executing that program and studying it to understand how you will need
 
 ### What to submit
 - [ ] Your working`legacy_network.py` code.
-- [ ] 1 pdf document with deliberables of steps 1 through 8
+- [ ] 1 pdf document with deliberables of tasks 1 through 7
 - [ ] TLS chat server and TLS chat client scripts
 - [ ] Minutes of the 3 meetings.
 - [ ] Script that issues server certificates for web server and chat server
