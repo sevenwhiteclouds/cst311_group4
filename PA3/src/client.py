@@ -23,7 +23,6 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 # Set global variables
-#server_name = "keldin.me"
 server_name = "localhost"
 server_port = 12000
 
