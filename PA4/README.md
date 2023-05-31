@@ -138,7 +138,7 @@ I suggest executing that program and studying it to understand how you will need
 5. Make the changes needed and document each line that is changed 
 6. Team works on test and debugging until pingall is successful, and TLS web server and TLS chat application are working.
 7. TA may check in with Team Lead on assignment progress. 
-8. Team lead collects items to turn in and submits a document with all the parts needed.  ***Important – only 1 document needs to be submitted - by the Team lead for each team. ***
+8. Team lead collects items to turn in and submits a document with all the parts needed.  ***Important – only 1 document needs to be submitted - by the Team lead for each team.***
 10. Complete assignment before deadline. 
 
 ### Hints
