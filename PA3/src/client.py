@@ -1,12 +1,8 @@
 #!env python
 
 """Chat client for CST311 Programming Assignment 3"""
-__author__ = "[team name here]"
-__credits__ = [
-  "Your",
-  "Names",
-  "Here"
-]
+__author__ = "Team 4"
+__credits__ = ["Keldin M.", "Stacy K.", "Steven C", "Samuel U."]
 
 # Import statements
 import socket as s
@@ -18,7 +14,7 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 # Set global variables
-server_name = 'localhost'
+server_name = "localhost"
 server_port = 12000
 
 def main():
@@ -40,7 +36,7 @@ def main():
     exit(8)
     
   # Get input from user
-  user_input = input('Input lowercase sentence:')
+  user_input = input("Input lowercase sentence: ")
   
   # Wrap in a try-finally to ensure the socket is properly closed regardless of errors
   try:
@@ -54,7 +50,7 @@ def main():
     server_response_decoded = server_response.decode()
     
     # Print output from server
-    print('From Server:')
+    print("From Server:")
     print(server_response_decoded)
     
   finally:

@@ -1,0 +1,37 @@
+Meeting 1: Overview and discussion of requirements
+Date:05/23/2023
+Attendees: Keldin M., Stacy K., Steven C., Samuel U.
+
+For the first meeting, we looked at the requirements of Project 3, which helped the group understand the expectations
+for this projects. We also looked at the extra credit options and decided we would probably work on those once the
+main requirements are done. As a group, we discussed how multithreading will be important for this project. We also
+discussed how there are different ways to dictate which client sends the first message. After some strategizing and
+planning on how this assignment can be done, we decided that we can each individually begin working on the project and
+will discuss each others code at the next meeting. Everyone's code should be able to have 2 clients establish a TCP
+connection and determine which thread's message is recaching the server first.
+
+Meeting 2: Review progress of code
+Date:05/26/2023
+Attendees: Keldin M., Stacy K., Steven C., Samuel U.
+
+For this meeting, we examined and ran each other's code. We commented and assisted each other on our codes. We made sure
+everyone had an understanding of multithreading and how to accomplish it on the client-server program. We discussed how
+it was difficult to write in Python since none of us had prior experience in it. We also note how it was difficult to 
+determine which thread's message is sent first. It is easy for the messages to be printed out in the order they were 
+received but more challenging to determine what thread the messages came from. The incoming messages could be put on a
+list and outputted in the order they were received but that will not determine whether or not client x or client y sent 
+the message first. The importance of determining which client is sending their message first was overlooked by some, but 
+Keldin had addressed this in his code so we decide we would use his code since it meet all the requirements.
+
+Meeting 3: Code review, extra credit tasks
+Date: 05/29/2023
+Attendees: Keldin M., Stacy K., Steven C., Samuel U.
+
+With a working code accomplished, we decided to focus on the extra credit tasks. We brainstorm together how to get we
+can get a chat server history to display will also have the clients communicate instantly with one another. We also
+worked towards getting the client to exit if "Bye" is entered. There was a collaborative effort that involved many
+scenarios and involved working through many bugs and errors. Having the client exit after saying "Bye" kept crashing the
+server and took a lot of time and effort to fix. Once the extra credit was finished, we made sure the code was working
+and there was documentation explaining what the code was doing. In meeting 1, we had already discussed why
+multithreading was important and after implementing multithreading, it was simple to answer the question why
+multithreading is needed for this project. The final meeting was extensive but allowed for this project to be completed.
