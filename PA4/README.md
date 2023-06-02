@@ -98,7 +98,7 @@ I suggest executing that program and studying it to understand how you will need
 
 ### What to submit
 - [ ] Your working`legacy_network.py` code.
-- [ ] 1 pdf document with deliberables of tasks 1 through 7
+- [ ] 1 pdf document with deliverables of tasks 1 through 7
 - [ ] TLS chat server and TLS chat client scripts
 - [ ] Minutes of the 3 meetings.
 - [ ] Script that issues server certificates for web server and chat server
@@ -122,7 +122,7 @@ I suggest executing that program and studying it to understand how you will need
 - [ ] 7. (25 points) Screen capture of the successful wget (or curl) of the web server index file.
 - [ ] 8. (20 points) Screenshot of both decrypted server (web and chat) certificates.
 - [ ] 9. (40 points) Your modified legacy_network.py program as a separate python file. 
-- [ ] 9. ***(30 points) Teamwork grade:***
+- [ ] 9. ***(75 points) Teamwork grade:***
   - Each student should fill out the [peer evaluation form](https://forms.gle/vtt31GjK9Rrerews5) for each of their teammates.  Effort will be graded based on reported student effort
     - An average of 3 or higher corresponds to full points
     - An average below 3 will be scaled between maximum points and 0
