@@ -106,8 +106,12 @@ Timeout Interval: 0.409 ms
 You will hand in the complete client and server code to Canvas.
 - [ ] Minutes of the 3 meetings.
 - [ ] Screenshots of server and client side output in one pdf file.
-- [ ] Fill in columns B and C with RTTs and lost packets as indicated in the file - Output Checker. 
-- Your outputs in your screenshots must match the outputs calculated in the Output Checker.
+- [ ] Copy of [output checker](https://docs.google.com/spreadsheets/d/1WxK9ww-oc5uNbU_b-58MholQ6KzyLp-6HvXW-z9mbIo/edit?usp=sharing)
+  - [ ] Fill in columns B and C with RTTs and lost packets as indicated in the file - Output Checker. 
+    - Your outputs in your screenshots must match the outputs calculated in the Output Checker.
+- [ ] Source code
+  - [ ] Server
+  - [ ] Client
 
 ### Grading Objectives
 - [ ] (30 points) You must complete this program in the Mininet VM. 
@@ -125,8 +129,8 @@ You will hand in the complete client and server code to Canvas.
 - [ ] (10 points) You must write the client code to do the assignment with the calculations in #3 above without the use of a list (or array). Find an efficient and effective use of storage and program speed.
 - [ ] (5 points) Programs must be well documented.
 - [ ] (5 points) Submission files are in order. (Look at the “What to hand in” section.)
-- [ ] (50 points) Teamwork grade
-  - Each team member will grade each other teammate out of 10 points during peer evaluation. 
+- [ ] ***(50 points) Teamwork grade***
+  - Each team member will grade each other teammate out of 10 points during [peer evaluation](https://forms.gle/vtt31GjK9Rrerews5). 
   I will average all team members’ grades and scale it to get your teamwork grade out of 50 points. 
   
 
