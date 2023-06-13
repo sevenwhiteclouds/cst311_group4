@@ -45,7 +45,7 @@ They will be responsible for running meetings as well as the final submission.
 Next, split up your team to have one group do the UDP example together and another group to do the TCP example.
 While these teams can work independently, there is a fair bit of overlap in their roles, and communication between them, so keeping this communication going would be beneficial.
 
-Third, At least once have a meeting where all team members look over all the code together to help understand what it is doind and any changes that were necessary.
+Third, At least once have a meeting where all team members look over all the code together to help understand what it is doing and any changes that were necessary.
 
 #### IDE Configuration
 You are welcome to use whatever IDE the team prefers; for this assignment with about 10 lines of code, you may prefer to simply use an editor but this is up to you.
@@ -126,15 +126,15 @@ Grading Objectives
 - [ ] Documentation Grades
   - [ ] (10 points) All screenshots in one pdf file. Include one Minutes of meeting pdf file.
 - [ ] Teamwork grade:
-  - [ ] (30 points) Each team member will grade each other teammate out of 4 points during peer evaluation. 
+  - [ ] (30 points) Each team member will grade each other teammate out of 4 points during [peer evaluation](https://forms.gle/vtt31GjK9Rrerews5). 
     - I will average all team members’ grades and scale it to get your teamwork grade out of 30 points. 
     - Note that 30% of your grade will come from your teamwork and team member evaluations.
 
 ### What to Hand in
 
-Since the code is already given, you need not submit python files for this assignment. 
 You will hand in the following:
-- Screenshots of the working UDP and TCP client/server programs for all test cases given above.
-- Minutes of meeting including: Team Lead name, attendance, work division narrative (1-2 lines is good enough).
-- You must also fill in the peer evaluation form for teamwork grade. 
+- [ ] Screenshots of the working UDP and TCP client/server programs for all test cases given above.
+- [ ] Minutes of meeting including: Team Lead name, attendance, work division narrative (1-2 lines is good enough).
+- [ ] You must also fill in the [peer evaluation form](https://forms.gle/vtt31GjK9Rrerews5) for teamwork grade. 
+- [ ] Source code modified to work within mininet
 

@@ -41,3 +41,9 @@ You can help fix problems in one of two ways:
 2. Fix the issue on your local version and submit a pull request!  
    - This is the better option for when you found a bug in the starter code and want to show off your coding skills.
    - You can find instructions for opening a pull request [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+   
+
+## Peer Evaluation
+
+For each project it is important to fill out the [peer evaluation form](https://forms.gle/vtt31GjK9Rrerews5).
+Failure to do so will result in a 0 for your peer evaluation rating leading to a loss of some points.

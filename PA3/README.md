@@ -114,7 +114,7 @@ The messages from the server to the client must look like (depending on the orde
   - [ ] (5 points) Server should print messages received from clients.
 
 - [ ] ***(50 points) Teamwork grade***
-  - Each student should fill out the [Peer Evaluation form](https://docs.google.com/forms/d/e/1FAIpQLSdp2MFKtzolbP0nZ5yq9hnNVyEOFeGUoX4m-LneKczyNPm3FQ/viewform?usp=send_form) for each of their teammates.  Effort will be graded based on reported student effort
+  - Each student should fill out the [peer evaluation form](https://forms.gle/vtt31GjK9Rrerews5) for each of their teammates.  Effort will be graded based on reported student effort
     - An average of 3 or higher corresponds to full points
     - An average below 3 will be scaled between maximum points and 0
     - If you do not fill out the form you will lose half of your overall teamwork grade points

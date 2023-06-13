@@ -12,3 +12,6 @@ local.properties
 .cxx/
 *.keystore
 !debug.keystore
+
+# python
+__pycache__
