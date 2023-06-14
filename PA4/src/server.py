@@ -13,7 +13,7 @@ def spawn_thread(client, address, mssgs):
   log.info(f"Connected to client at {address}")
 
   recv_mssg = client.recv(1024).decode()
-  log.info("Recieved query test \"" + recv_mssg + "\"")
+  log.info(f"Recieved query test \"{recv_mssg}\"")
 
   thread_name = threading.current_thread().name
 
