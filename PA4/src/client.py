@@ -5,6 +5,7 @@ __author__ = "Team 4"
 __credits__ = ["Keldin M.", "Stacy K.", "Steven C", "Samuel U."]
 
 # Import statements
+import ssl
 import socket as s
 
 # Configure logging
@@ -14,16 +15,19 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 # Set global variables
-server_name = "localhost"
+server_name = "www.cst311.test"
 server_port = 12000
 
 def main():
+  context = ssl.create_default_context()
   # Create socket
   client_socket = s.socket(s.AF_INET, s.SOCK_STREAM)
+
+  secure_client_socket = context.wrap_socket(client_socket, server_hostname = server_name)
   
   try:
     # Establish TCP connection
-    client_socket.connect((server_name,server_port))
+    secure_client_socket.connect((server_name,server_port))
   except Exception as e:
     log.exception(e)
     log.error("***Advice:***")
@@ -42,10 +46,10 @@ def main():
   try:
     # Set data across socket to server
     #  Note: encode() converts the string to UTF-8 for transmission
-    client_socket.send(user_input.encode())
+    secure_client_socket.send(user_input.encode())
     
     # Read response from server
-    server_response = client_socket.recv(1024)
+    server_response = secure_client_socket.recv(1024)
     # Decode server response from UTF-8 bytestream
     server_response_decoded = server_response.decode()
     
