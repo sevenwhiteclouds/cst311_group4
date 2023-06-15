@@ -3,7 +3,7 @@ import ssl
 
 
 serverPort = 12000
-serverAddr = '10.0.0.2'
+serverAddr = "www.cst311.test"
 
 #needs to be updated to correct location
 certfile = '/etc/ssl/demoCA/newcerts/cst311.test-cert.pem'
