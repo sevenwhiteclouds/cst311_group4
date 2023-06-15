@@ -61,6 +61,9 @@ def myNetwork():
   # r4 --> r5
   info(net["r4"].cmd("ip route add 10.0.2.0/24 via 192.168.3.6 dev r4-eth1"))
 
+  net["r5"].cmd("ip route add 10.0.1.0/24 via 192.168.3.4 dev r5-eth0")
+  net["r5"].cmd("ip route add 192.168.1.0/24 via 192.168.3.4 dev r5-eth0")
+
   info('*** Starting controllers\n')
   for controller in net.controllers:
     controller.start()
