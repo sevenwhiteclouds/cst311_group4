@@ -48,16 +48,23 @@ def myNetwork():
   info('*** Starting network\n')
   net.build()
 
-  info("1\n")
+  info("Static Route: 1\n")
   info(net["r4"].cmd("ip route add 10.0.1.0/24 via 192.168.1.2 dev r4-eth0"))
-  info("2\n")
+
+  info("Static Route: 2\n")
   info(net["r3"].cmd("ip route add 10.0.2.0/24 via 192.168.1.1 dev r3-eth0"))
-  info("3\n")
+
+  info("Static Route: 3\n")
   info(net["r5"].cmd("ip route add 10.0.1.0/24 via 192.168.3.4 dev r5-eth0"))
-  info("4\n")
+
+  info("Static Route: 4\n")
   info(net["r4"].cmd("ip route add 10.0.2.0/24 via 192.168.3.6 dev r4-eth1"))
-  info("5\n")
+
+  info("Static Route: 5\n")
   info(net["r5"].cmd("ip route add 192.168.1.0/24 via 192.168.3.4 dev r5-eth0"))
+
+  info("Static Route: 6\n")
+  info(net["r3"].cmd("ip route add 192.168.3.0/24 via 192.168.1.1 dev r3-eth0"))
 
   info('*** Starting controllers\n')
   for controller in net.controllers:
