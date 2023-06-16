@@ -40,30 +40,28 @@ def myNetwork():
   net.addLink(h4, s2)
   net.addLink(s2, r5, intfName2='r5-eth1', params2={'ip': '10.0.2.3/24'})
   net.addLink(s1, r3, intfName2='r3-eth1', params2={'ip': '10.0.1.3/24'})
-  net.addLink(r3, r4, intfName1='r3-eth0', params1={'ip': '192.168.1.2/24'}, intfName2='r4-eth0',
-              params2={'ip': '192.168.1.4/24'})
-  net.addLink(r4, r5, intfName1='r4-eth1', params1={'ip': '192.168.3.4/24'}, intfName2='r5-eth0',
-              params2={'ip': '192.168.3.6/24'})
+  net.addLink(r3, r4, intfName1='r3-eth0', params1={'ip': '192.168.1.2/24'}, intfName2='r4-eth0', params2={'ip': '192.168.1.4/24'})
+  net.addLink(r4, r5, intfName1='r4-eth1', params1={'ip': '192.168.3.4/24'}, intfName2='r5-eth0', params2={'ip': '192.168.3.6/24'})
 
   info('*** Starting network\n')
   net.build()
 
-  info("Static Route: 1\n")
+  #Static Route: 1
   info(net["r4"].cmd("ip route add 10.0.1.0/24 via 192.168.1.2 dev r4-eth0"))
 
-  info("Static Route: 2\n")
+  #Static Route: 2
   info(net["r3"].cmd("ip route add 10.0.2.0/24 via 192.168.1.1 dev r3-eth0"))
 
-  info("Static Route: 3\n")
+  #Static Route: 3
   info(net["r5"].cmd("ip route add 10.0.1.0/24 via 192.168.3.4 dev r5-eth0"))
 
-  info("Static Route: 4\n")
+  #Static Route: 4
   info(net["r4"].cmd("ip route add 10.0.2.0/24 via 192.168.3.6 dev r4-eth1"))
 
-  info("Static Route: 5\n")
+  #Static Route: 5
   info(net["r5"].cmd("ip route add 192.168.1.0/24 via 192.168.3.4 dev r5-eth0"))
 
-  info("Static Route: 6\n")
+  #Static Route: 6
   info(net["r3"].cmd("ip route add 192.168.3.0/24 via 192.168.1.1 dev r3-eth0"))
 
   info('*** Starting controllers\n')
