@@ -9,6 +9,8 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 PORT = 12000
+CERT_FILE = "./ca_cert/chatpa4.test-cert.pem"
+KEY_FILE = "./ca_cert/chatpa4.test-key.pem"
 
 def spawn_thread(secure_client, address, mssgs):
   log.info(f"Connected to client at {address}")
@@ -25,21 +27,21 @@ def spawn_thread(secure_client, address, mssgs):
 
   while len(mssgs) < 2:
     time.sleep(1)
-  
+
   secure_client.send(f"{mssgs[0]}, {mssgs[1]}".encode())
   secure_client.close()
 
 if __name__ == "__main__":
   context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-  context.load_cert_chain("./ca-cert/chatpa4.test-cert.pem", "./ca-cert/chatpa4.test-key.pem")
+  context.load_cert_chain(CERT_FILE, KEY_FILE)
 
   server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
   server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
   server_socket.bind(('', PORT))
   server_socket.listen(1)
-  
+
   log.info(f"The server is ready to receive on port {PORT}")
-  
+
   mssgs = []
 
   for i in range(2):
