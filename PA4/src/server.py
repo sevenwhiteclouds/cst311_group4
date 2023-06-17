@@ -31,7 +31,7 @@ def spawn_thread(secure_client, address, mssgs):
 
 if __name__ == "__main__":
   context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-  context.load_cert_chain("./cst311.test-cert.pem", "./cst311.test-key.pem")
+  context.load_cert_chain("/etc/ssl/demoCA/newcerts/cst311.test-cert.pem", "/etc/ssl/demoCA/private/cst311.test-key.pem")
 
   server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
   server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

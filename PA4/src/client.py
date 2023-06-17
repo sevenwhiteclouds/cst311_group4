@@ -7,6 +7,7 @@ __credits__ = ["Keldin M.", "Stacy K.", "Steven C", "Samuel U."]
 # Import statements
 import ssl
 import socket as s
+import time
 
 # Configure logging
 import logging
@@ -25,20 +26,29 @@ def main():
 
   secure_client_socket = context.wrap_socket(client_socket, server_hostname = server_name)
   
-  try:
-    # Establish TCP connection
-    secure_client_socket.connect((server_name,server_port))
-  except Exception as e:
-    log.exception(e)
-    log.error("***Advice:***")
-    if isinstance(e, s.gaierror):
-      log.error("\tCheck that server_name and server_port are set correctly.")
-    elif isinstance(e, ConnectionRefusedError):
-      log.error("\tCheck that server is running and the address is correct")
+  for i in range(3):
+    try:
+      # Establish TCP connection
+      secure_client_socket.connect((server_name,server_port))
+    except Exception as e:
+      #log.exception(e)
+      #log.error("***Advice:***")
+      if isinstance(e, s.gaierror):
+        log.error("\tCheck that server_name and server_port are set correctly.")
+      elif isinstance(e, ConnectionRefusedError):
+        log.error("\tCheck that server is running and the address is correct")
+      else:
+        log.error("\tNo specific advice, please contact teaching staff and include text of error and code.")
     else:
-      log.error("\tNo specific advice, please contact teaching staff and include text of error and code.")
-    exit(8)
-    
+      break
+        
+    if i < 2:
+      log.error(f"\tTrying {3 - (i + 1)} more time(s) in 2 seconds")
+      time.sleep(2)
+    else:
+      log.error("\tAborting. No connection was ever found")
+      exit(8)
+
   # Get input from user
   user_input = input("Input lowercase sentence: ")
   
