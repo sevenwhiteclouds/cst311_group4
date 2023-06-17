@@ -14,7 +14,7 @@ sp.call(['openssl', 'genrsa', '-out', 'ca-cert/webpa4.test-key.pem', '2048'])
 cn1 = input("Input CN for the web server: ")
 s1 = f"/C=US/ST=CA/L=Corona/O=CST311/OU=Networking/CN={cn1}"
 sp.call(['openssl', 'req', '-new', '-config', '/etc/ssl/openssl.cnf', '-key', 'ca-cert/webpa4.test-key.pem', '-out', 'ca-cert/webpa4.test.csr', '-subj', s1])
-sp.call(['openssl', 'x509', '-req', '-days', '365', '-in', 'ca-cert/webpa4.test.csr',  '-CA', '/etc/ssl/demoCA/cacert.pem', '-CAkey', '/etc/ssl/demoCA/private/cakey.pem', '-CAcreateserial', '-out', 'ca-cert/webpa4.test-cert.pem' ])
+sp.call(['openssl', 'x509', '-req', '-days', '365', '-in', 'ca-cert/webpa4.test.csr',  '-CA', 'cacert.pem', '-CAkey', 'cakey.pem', '-CAcreateserial', '-out', 'ca-cert/webpa4.test-cert.pem' ])
 print("\n")
 
 
@@ -24,7 +24,7 @@ sp.call(['openssl', 'genrsa', '-out', 'ca-cert/chatpa4.test-key.pem', '2048'])
 cn2 = input("Input CN for the chat server: ")
 s2 = f"/C=US/ST=CA/L=Corona/O=CST311/OU=Networking/CN={cn2}"
 sp.call(['openssl', 'req', '-new', '-config', '/etc/ssl/openssl.cnf', '-key', 'ca-cert/chatpa4.test-key.pem', '-out', 'ca-cert/chatpa4.test.csr', '-subj', s2])
-sp.call(['openssl', 'x509', '-req', '-days', '365', '-in', 'ca-cert/chatpa4.test.csr',  '-CA', '/etc/ssl/demoCA/cacert.pem', '-CAkey', '/etc/ssl/demoCA/private/cakey.pem', '-CAcreateserial', '-out', 'ca-cert/chatpa4.test-cert.pem' ])
+sp.call(['openssl', 'x509', '-req', '-days', '365', '-in', 'ca-cert/chatpa4.test.csr',  '-CA', 'cacert.pem', '-CAkey', 'cakey.pem', '-CAcreateserial', '-out', 'ca-cert/chatpa4.test-cert.pem' ])
 print("\n")
 
 # print what was generated
