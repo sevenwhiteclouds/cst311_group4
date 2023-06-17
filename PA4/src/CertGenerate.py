@@ -3,7 +3,7 @@ import os
 
 # verify if folder "ca-cert" exists
 # no?, create it
-# yes?, delete it
+# yes?, delete contents and remake
 if os.path.exists("ca-cert"):
     sp.call(["rm", "-rf", "ca-cert"])
 sp.call(["mkdir", "ca-cert"])
