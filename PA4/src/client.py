@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 # Set global variables
-server_name = "www.cst311.test"
+server_name = "www.hi.test"
 server_port = 12000
 
 def main():
