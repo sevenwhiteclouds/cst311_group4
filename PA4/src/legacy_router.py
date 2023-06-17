@@ -12,6 +12,9 @@ from mininet.term import makeTerm
 
 def myNetwork():
 
+  # Runs certificate creation script
+  os.system("python3 CertGenerate.py")
+
   net = Mininet(topo=None, build=False, ipBase='10.0.0.0/24')
 
   info('*** Adding controller\n')
@@ -77,13 +80,17 @@ def myNetwork():
 
   info('*** Post configure switches and hosts\n')
 
-  makeTerm(h1, title='chat client 1', term='xterm', display=None, cmd='python3 chat_client.py')
-  makeTerm(h2, title='chat server', term='xterm', display=None, cmd='python3 chat_server.py')
-  makeTerm(h3, title='chat client 2', term='xterm', display=None, cmd='python3 chat_client.py')
+  # Creates xterm windows and automatically runs commands
+  makeTerm(h4, title='Chat Server', term='xterm', display=None, cmd='python3 chat_server.py && bash')
+  makeTerm(h1, title='Chat Client 1', term='xterm', display=None, cmd='python3 chat_client.py && bash')
+  makeTerm(h3, title='Chat Client 2', term='xterm', display=None, cmd='python3 chat_client.py && bash')
+  makeTerm(h2, title='Web Server', term='xterm', display=None, cmd='python3 webserver.py && bash')
 
   CLI(net)
 
   net.stop()
+
+  # Closes all active xterm windows
   net.stopXterms()
 
 
