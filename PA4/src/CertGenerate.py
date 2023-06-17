@@ -18,10 +18,9 @@ print("\n")
 
 # 2. generate a root CA certificate and private key for chat server
 sp.call(['openssl', 'genrsa', '-out', 'ca-cert/chatpa4.test-key.pem', '2048'])
-sp.call(['openssl', 'req', '-nodes', '-new', '-config', '/etc/ssl/openssl.cnf', '-key', 'ca-cert/chatpa4.test-key.pem', '-out', 'ca-cert/chatpa4.test.csr.pem', '-subj', "/C=US/ST=CA/L=Corona/O=CST311/OU=Networking/CN=www.webpa4.test"])
+sp.call(['openssl', 'req', '-nodes', '-new', '-config', '/etc/ssl/openssl.cnf', '-key', 'ca-cert/chatpa4.test-key.pem', '-out', 'ca-cert/chatpa4.test.csr.pem', '-subj', "/C=US/ST=CA/L=Corona/O=CST311/OU=Networking/CN=www.chatpa4.test"])
 sp.call(['openssl', 'x509', '-req', '-days', '365', '-in', 'ca-cert/chatpa4.test.csr.pem',  '-signkey', 'ca-cert/chatpa4.test-key.pem', '-out', 'ca-cert/chatpa4.test-cert.crt' ])
 print("\n")
 
 print("CA certificate and private key generated for : Web Server")
 print("CA certificate and private key generated for : Chat Server")
-
