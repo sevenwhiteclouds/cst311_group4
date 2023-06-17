@@ -29,7 +29,7 @@ def spawn_thread(secure_client, address, mssgs):
   secure_client.send(f"{mssgs[0]}, {mssgs[1]}".encode())
   secure_client.close()
 
-def main():
+if __name__ == "__main__":
   context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
   context.load_cert_chain("./cst311.test-cert.pem", "./cst311.test-key.pem")
 
@@ -49,6 +49,3 @@ def main():
     threading.Thread(target = spawn_thread, args = (secure_client, address, mssgs)).start()
 
   server_socket.close()
-
-if __name__ == "__main__":
-  main()
