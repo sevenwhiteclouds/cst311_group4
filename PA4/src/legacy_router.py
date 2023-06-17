@@ -13,7 +13,7 @@ from mininet.term import makeTerm
 def myNetwork():
 
   # Runs certificate creation script
-  os.system("python3 cert_generate.py")
+  #os.system("sudo python3 cert_generate.py")
 
   net = Mininet(topo=None, build=False, ipBase='10.0.0.0/24')
 
