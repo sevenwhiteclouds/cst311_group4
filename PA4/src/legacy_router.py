@@ -1,11 +1,14 @@
 #!/usr/bin/python
+import os
 
-from mininet.net import Mininet
-from mininet.node import Controller, Node
-from mininet.node import OVSKernelSwitch
-from mininet.node import Host
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
+from mininet.net import Mininet
+from mininet.node import Controller, Node
+from mininet.node import Host
+from mininet.node import OVSKernelSwitch
+from mininet.term import makeTerm
+
 
 def myNetwork():
 
@@ -73,8 +76,15 @@ def myNetwork():
   net.get('s1').start([c0])
 
   info('*** Post configure switches and hosts\n')
+
+  makeTerm(h1, title='chat client 1', term='xterm', display=None, cmd='python3 chat_client.py')
+  makeTerm(h2, title='chat server', term='xterm', display=None, cmd='python3 chat_server.py')
+  makeTerm(h3, title='chat client 2', term='xterm', display=None, cmd='python3 chat_client.py')
+
   CLI(net)
+
   net.stop()
+  net.stopXterms()
 
 
 if __name__ == '__main__':

@@ -8,7 +8,7 @@ Both scripts requirement minimum of python 3.4[^1] to execute.
 To use first call `python server.py` in one terminal window followed by `python client.py` in another.
 
 ```shell
-$ python server.py
+$ python chat_server.py
 INFO:__main__:The server is ready to receive on port 12000
 ```
 
@@ -20,7 +20,7 @@ Input lowercase sentence:
 ### Example Execution
 
 ```shell
-$ python server.py
+$ python chat_server.py
 INFO:__main__:The server is ready to receive on port 12000
 INFO:__main__:Connected to client at ('127.0.0.1', 52569)
 INFO:__main__:Recieved query test.txt "Hello"
