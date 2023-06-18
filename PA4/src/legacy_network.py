@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import os
-
+import sys
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 from mininet.net import Mininet
@@ -9,11 +9,22 @@ from mininet.node import Host
 from mininet.node import OVSKernelSwitch
 from mininet.term import makeTerm
 
-
 def myNetwork():
+  while True:
+    cn1 = input('Input CN for the web server: ')
+    cn2 = input('Input CN for the chat server: ')
+
+    if cn1 == cn2:
+      print('You cannot have the same CN for both servers')
+      continue
+    else:
+      break
 
   # Runs certificate creation script
-  #os.system("sudo python3 cert_generate.py")
+  if os.system(f'sudo python3 key_cert_gen.py {cn1} {cn2}') != 0:
+      print('\nIt appears that you entered the wrong password for the CA.')
+      print('Quitting to prevent damage, but no worries, you can simply run again with the correct password!')
+      sys.exit(1)
 
   net = Mininet(topo=None, build=False, ipBase='10.0.0.0/24')
 
@@ -53,22 +64,22 @@ def myNetwork():
   net.build()
 
   #Static Route: 1
-  info(net["r4"].cmd("ip route add 10.0.1.0/24 via 192.168.1.2 dev r4-eth0"))
+  info(net['r4'].cmd('ip route add 10.0.1.0/24 via 192.168.1.2 dev r4-eth0'))
 
   #Static Route: 2
-  info(net["r3"].cmd("ip route add 10.0.2.0/24 via 192.168.1.1 dev r3-eth0"))
+  info(net['r3'].cmd('ip route add 10.0.2.0/24 via 192.168.1.1 dev r3-eth0'))
 
   #Static Route: 3
-  info(net["r5"].cmd("ip route add 10.0.1.0/24 via 192.168.3.4 dev r5-eth0"))
+  info(net['r5'].cmd('ip route add 10.0.1.0/24 via 192.168.3.4 dev r5-eth0'))
 
   #Static Route: 4
-  info(net["r4"].cmd("ip route add 10.0.2.0/24 via 192.168.3.6 dev r4-eth1"))
+  info(net['r4'].cmd('ip route add 10.0.2.0/24 via 192.168.3.6 dev r4-eth1'))
 
   #Static Route: 5
-  info(net["r5"].cmd("ip route add 192.168.1.0/24 via 192.168.3.4 dev r5-eth0"))
+  info(net['r5'].cmd('ip route add 192.168.1.0/24 via 192.168.3.4 dev r5-eth0'))
 
   #Static Route: 6
-  info(net["r3"].cmd("ip route add 192.168.3.0/24 via 192.168.1.1 dev r3-eth0"))
+  info(net['r3'].cmd('ip route add 192.168.3.0/24 via 192.168.1.1 dev r3-eth0'))
 
   info('*** Starting controllers\n')
   for controller in net.controllers:
@@ -81,10 +92,10 @@ def myNetwork():
   info('*** Post configure switches and hosts\n')
 
   # Creates xterm windows and automatically runs commands
-  makeTerm(h4, title='Chat Server', term='xterm', display=None, cmd='python3 chat_server.py && bash')
-  makeTerm(h1, title='Chat Client 1', term='xterm', display=None, cmd='python3 chat_client.py && bash')
-  makeTerm(h3, title='Chat Client 2', term='xterm', display=None, cmd='python3 chat_client.py && bash')
-  makeTerm(h2, title='Web Server', term='xterm', display=None, cmd='python3 webserver.py && bash')
+  makeTerm(h4, title='Chat Server', term='xterm', display=None, cmd='python3 chat_server.py; bash')
+  makeTerm(h2, title='Web Server', term='xterm', display=None, cmd=f'python3 web_server.py {cn1}; bash')
+  makeTerm(h1, title='Chat Client 1', term='xterm', display=None, cmd=f'python3 chat_client.py {cn2}; bash')
+  makeTerm(h3, title='Chat Client 2', term='xterm', display=None, cmd=f'python3 chat_client.py {cn2}; bash')
 
   CLI(net)
 
@@ -93,6 +104,14 @@ def myNetwork():
   # Closes all active xterm windows
   net.stopXterms()
 
+  hosts_file = open('/etc/hosts', 'r+')
+  lines = hosts_file.readlines()
+  lines = lines[:-2]
+  hosts_file.seek(0)
+  hosts_file.truncate()
+  hosts_file.seek(0)
+  hosts_file.writelines(lines)
+  hosts_file.close()
 
 if __name__ == '__main__':
   setLogLevel('info')
