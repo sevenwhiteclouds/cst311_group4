@@ -6,7 +6,7 @@ import socket
 import time
 
 # globals, server ip, port, dec place, socket timeout
-SERVER = "localhost"
+SERVER = "10.0.0.1"
 PORT = 12000
 REQUESTS = 10
 BUFFER_SIZE = 1024
